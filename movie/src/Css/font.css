@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200&family=Josefin+Sans:ital,wght@1,600&display=swap");
+
+.headerFont {
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 400;
+}
+
+.mainFont {
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
