@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getNowPlaying } from "../../Apis/api";
 
 const initialState = {
-  movies: null,
+  nowPlay: null,
   loading: false,
   done: false,
   error: null,
@@ -10,7 +10,7 @@ const initialState = {
 
 export const getNowPlay = createAsyncThunk("nowPlay/getNowPlaying", async ({ pageParam }) => {
   const res = await getNowPlaying({ pageParam });
-  return res.data;
+  return res;
 });
 
 export const nowPlaySlice = createSlice({
@@ -23,7 +23,7 @@ export const nowPlaySlice = createSlice({
     });
 
     builder.addCase(getNowPlay.fulfilled, (state, action) => {
-      state.movies = action.payload;
+      state.nowPlay = action.payload;
       state.loading = false;
       state.done = true;
       state.error = null;

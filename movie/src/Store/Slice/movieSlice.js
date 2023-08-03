@@ -2,14 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getMovies } from "../../Apis/api";
 
 const initialState = {
-  movies: [],
+  movies: null,
   loading: false,
+  done: false,
   error: null,
 };
 
 export const getMovie = createAsyncThunk("movies/getMovies", async ({ pageParam }) => {
   const res = await getMovies(pageParam);
-  return res.data;
+  return res;
 });
 
 export const moviesSlice = createSlice({
@@ -22,13 +23,14 @@ export const moviesSlice = createSlice({
     });
 
     builder.addCase(getMovie.fulfilled, (state, action) => {
-      state.movies = [...state.movies, ...action.payload.results];
+      state.movies = action.payload;
       state.loading = false;
       state.error = null;
     });
 
     builder.addCase(getMovie.rejected, (state, action) => {
       state.loading = false;
+      state.done = true;
       state.error = action.error.message;
     });
   },
