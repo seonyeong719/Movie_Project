@@ -13,7 +13,7 @@ export const getNowPlay = createAsyncThunk("nowPlay/getNowPlaying", async ({ pag
   return res;
 });
 
-export const nowPlaySlice = createSlice({
+const nowPlaySlice = createSlice({
   name: "nowPlay",
   initialState,
   extraReducers: (builder) => {

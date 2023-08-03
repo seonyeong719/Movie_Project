@@ -9,11 +9,11 @@ const initialState = {
 };
 
 export const getMovie = createAsyncThunk("movies/getMovies", async ({ pageParam }) => {
-  const res = await getMovies(pageParam);
+  const res = await getMovies({ pageParam });
   return res;
 });
 
-export const moviesSlice = createSlice({
+const moviesSlice = createSlice({
   name: "movies",
   initialState,
   extraReducers: (builder) => {
