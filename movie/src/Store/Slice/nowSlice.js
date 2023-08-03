@@ -2,13 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getNowPlaying } from "../../Apis/api";
 
 const initialState = {
-  movies: [],
+  movies: null,
   loading: false,
+  done: false,
   error: null,
 };
 
 export const getNowPlay = createAsyncThunk("nowPlay/getNowPlaying", async ({ pageParam }) => {
-  const res = await getNowPlaying(pageParam);
+  const res = await getNowPlaying({ pageParam });
   return res.data;
 });
 
@@ -22,14 +23,16 @@ export const nowPlaySlice = createSlice({
     });
 
     builder.addCase(getNowPlay.fulfilled, (state, action) => {
-      state.movies = [...state.movies, ...action.payload.results];
+      state.movies = action.payload;
       state.loading = false;
+      state.done = true;
       state.error = null;
     });
 
     builder.addCase(getNowPlay.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message;
+      state.done = true;
+      state.error = action.payload;
     });
   },
 });
