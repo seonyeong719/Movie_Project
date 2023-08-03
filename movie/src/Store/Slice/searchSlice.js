@@ -1,0 +1,40 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getSearch } from "../../Apis/api";
+
+const initialState = {
+  search: null,
+  loading: false,
+  done: false,
+  error: null,
+};
+
+export const getSearchList = createAsyncThunk("search/getSearch", async ({ pageParam }) => {
+  const res = await getSearch({ pageParam });
+  return res;
+});
+
+const searchSlice = createSlice({
+  name: "search",
+  initialState,
+  extraReducers: (builder) => {
+    builder.addCase(getSearchList.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+
+    builder.addCase(getSearchList.fulfilled, (state, action) => {
+      state.nowPlay = action.payload;
+      state.loading = false;
+      state.done = true;
+      state.error = null;
+    });
+
+    builder.addCase(getSearchList.rejected, (state, action) => {
+      state.loading = false;
+      state.done = true;
+      state.error = action.payload;
+    });
+  },
+});
+
+export default searchSlice;
