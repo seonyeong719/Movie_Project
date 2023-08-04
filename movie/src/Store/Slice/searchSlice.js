@@ -23,7 +23,7 @@ const searchSlice = createSlice({
     });
 
     builder.addCase(getSearchList.fulfilled, (state, action) => {
-      state.nowPlay = action.payload;
+      state.search = action.payload;
       state.loading = false;
       state.done = true;
       state.error = null;
