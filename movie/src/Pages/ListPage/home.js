@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovie } from "../../Store/Slice/movieSlice";
+import { styled } from "styled-components";
+import { FlexJustifyCenter } from "../../Styles/common";
+import ListCard from "../../Components/Card/listCard";
 
 function Home() {
   const [homePages, setHomePages] = useState(1);
   const dispatch = useDispatch();
   const getMovieState = useSelector((store) => store.movies);
 
-  console.log(getMovieState);
+  console.log(getMovieState.movies?.results);
 
   useEffect(() => {
     dispatch(getMovie(homePages));
@@ -17,6 +20,67 @@ function Home() {
     return <div>Loading...</div>;
   }
 
-  return <div>Home</div>;
+  // const IMG_BASE_URL = process.env.REACT_APP_IMG_BASE_URL;
+  const IMG_BASE_URL = "https://image.tmdb.org/t/p/original/";
+
+  return (
+    <div>
+      <S.MainPostWrap>
+        <S.MainPost
+          src={IMG_BASE_URL + getMovieState.movies?.results[0].backdrop_path}
+        ></S.MainPost>
+        <S.MainCont>{getMovieState.movies?.results[0].title}</S.MainCont>
+        <S.MainCont1>개봉일 :{getMovieState.movies?.results[0].release_date}</S.MainCont1>
+      </S.MainPostWrap>
+      <S.List>
+        <ListCard list={getMovieState.movies?.results} />
+      </S.List>
+    </div>
+  );
 }
 export default Home;
+
+const MainPostWrap = styled.div`
+  ${FlexJustifyCenter}
+  position: relative;
+`;
+
+const MainPost = styled.img`
+  width: 100%;
+  height: 48rem;
+  position: relative;
+  opacity: 0.7;
+`;
+
+const MainCont = styled.div`
+  font-size: 4.5rem;
+  font-weight: 600;
+  text-shadow: black 0.1rem 0.1rem 0.6rem;
+  color: ${({ theme }) => theme.COLOR.common.white};
+  position: absolute;
+  bottom: 24rem;
+  left: 11rem;
+`;
+
+const MainCont1 = styled.div`
+  font-size: 2.5rem;
+  position: absolute;
+  bottom: 20rem;
+  left: 11rem;
+  text-shadow: black 0.1rem 0.1rem 0.6rem;
+  color: ${({ theme }) => theme.COLOR.common.white};
+`;
+
+const List = styled.div`
+  background-color: ${({ theme }) => theme.COLOR.common.black};
+  ${FlexJustifyCenter}
+  flex-wrap: wrap;
+`;
+
+const S = {
+  List,
+  MainPost,
+  MainCont,
+  MainPostWrap,
+  MainCont1,
+};
