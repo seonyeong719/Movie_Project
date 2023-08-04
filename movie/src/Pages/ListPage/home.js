@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMovie } from "../../Store/Slice/movieSlice";
 
 function Home() {
-  const [homePages, setHomPages] = useState(1);
+  const [homePages, setHomePages] = useState(1);
   const dispatch = useDispatch();
   const getMovieState = useSelector((store) => store.movies);
 
