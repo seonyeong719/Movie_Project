@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-export const getDetailList = createAsyncThunk("detail/getDetail", async ({ pageParam }) => {
-  const res = await getDetail({ pageParam });
+export const getDetailList = createAsyncThunk("detail/getDetail", async ({ movieId }) => {
+  const res = await getDetail({ movieId });
   return res;
 });
 
