@@ -22,15 +22,16 @@ function Home() {
 
   // const IMG_BASE_URL = process.env.REACT_APP_IMG_BASE_URL;
   const IMG_BASE_URL = "https://image.tmdb.org/t/p/original/";
+  const random = Math.floor(Math.random() * 20);
 
   return (
     <div>
       <S.MainPostWrap>
         <S.MainPost
-          src={IMG_BASE_URL + getMovieState.movies?.results[0].backdrop_path}
+          src={IMG_BASE_URL + getMovieState.movies?.results[random].backdrop_path}
         ></S.MainPost>
-        <S.MainCont>{getMovieState.movies?.results[0].title}</S.MainCont>
-        <S.MainCont1>개봉일 :{getMovieState.movies?.results[0].release_date}</S.MainCont1>
+        <S.MainCont>{getMovieState.movies?.results[random].title}</S.MainCont>
+        <S.MainCont1>개봉일 :{getMovieState.movies?.results[random].release_date}</S.MainCont1>
       </S.MainPostWrap>
       <S.List>
         <ListCard list={getMovieState.movies?.results} />

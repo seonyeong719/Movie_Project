@@ -28,7 +28,6 @@ function DetailPage() {
       {getDetailState.detail && (
         <S.Body>
           <S.BackImg src={IMG_BASE_URL + getDetailState.detail.backdrop_path} />
-
           <Wrap>
             <S.PostImg src={IMG_BASE_URL + getDetailState.detail.poster_path} />
             <Box>
@@ -47,7 +46,6 @@ function DetailPage() {
               <S.OverView>{getDetailState.detail.overview}</S.OverView>
             </Box>
           </Wrap>
-
           <S.Post>
             {getDetailState.detail.videos.results.length === 0 ? (
               <S.Blank>본 영화는 영상이 제공되지 않습니다.</S.Blank>
@@ -173,6 +171,7 @@ const Div = styled.div`
 const OverView = styled.div`
   font-size: 1.7rem;
   margin-top: 1.2rem;
+  line-height: 2.2rem;
 `;
 
 const S = {
