@@ -4,6 +4,7 @@ import { getTopList } from "../../Store/Slice/topSlice";
 import ListCard from "../../Components/Card/listCard";
 import { styled } from "styled-components";
 import { FlexJustifyCenter } from "../../Styles/common";
+import Pagination from "../../Components/Pagination/pagination";
 
 function TopRated() {
   const [topPages, setTopPages] = useState(1);
@@ -12,16 +13,24 @@ function TopRated() {
 
   useEffect(() => {
     dispatch(getTopList(topPages));
-  }, []);
+  }, [topPages]);
 
   if (getTopState.loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <S.List>
-      <ListCard list={getTopState.top?.results} />
-    </S.List>
+    <>
+      <S.List>
+        <ListCard list={getTopState.top?.results} />
+      </S.List>
+      <Pagination
+        totalPage={getTopState.top?.total_pages}
+        limits={10}
+        setPage={setTopPages}
+        scroll={0}
+      />
+    </>
   );
 }
 export default TopRated;

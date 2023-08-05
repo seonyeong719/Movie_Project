@@ -4,17 +4,16 @@ import { getMovie } from "../../Store/Slice/movieSlice";
 import { styled } from "styled-components";
 import { FlexJustifyCenter } from "../../Styles/common";
 import ListCard from "../../Components/Card/listCard";
+import Pagination from "../../Components/Pagination/pagination";
 
 function Home() {
   const [homePages, setHomePages] = useState(1);
   const dispatch = useDispatch();
   const getMovieState = useSelector((store) => store.movies);
 
-  console.log(getMovieState.movies?.results);
-
   useEffect(() => {
     dispatch(getMovie(homePages));
-  }, []);
+  }, [homePages]);
 
   if (getMovieState.loading) {
     return <div>Loading...</div>;
@@ -36,6 +35,12 @@ function Home() {
       <S.List>
         <ListCard list={getMovieState.movies?.results} />
       </S.List>
+      <Pagination
+        totalPage={getMovieState.movies?.total_pages}
+        limits={10}
+        setPage={setHomePages}
+        scroll={0}
+      />
     </div>
   );
 }

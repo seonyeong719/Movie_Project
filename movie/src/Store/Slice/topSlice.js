@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 
-export const getTopList = createAsyncThunk("top/getTopRated", async ({ pageParam }) => {
-  const res = await getTopRated({ pageParam });
+export const getTopList = createAsyncThunk("top/getTopRated", async (pageParam) => {
+  const res = await getTopRated(pageParam);
   return res;
 });
 

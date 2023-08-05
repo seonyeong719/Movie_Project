@@ -4,30 +4,33 @@ import { getNowPlay } from "../../Store/Slice/nowSlice";
 import ListCard from "../../Components/Card/listCard";
 import { styled } from "styled-components";
 import { FlexJustifyCenter } from "../../Styles/common";
+import Pagination from "../../Components/Pagination/pagination";
 
 function NowPlaying() {
   const [pages, setPages] = useState(1);
   const dispatch = useDispatch();
   const getNowPlayState = useSelector((store) => store.nowPlay);
 
-  console.log(getNowPlayState.nowPlay?.results);
-
   useEffect(() => {
     dispatch(getNowPlay(pages));
-  }, []);
+  }, [pages]);
 
   if (getNowPlayState.loading) {
     return <div>Loading...</div>;
   }
 
-  // if (getNowPlayState.nowPlay === null) {
-  //   return <div>No movies</div>;
-  // }
-
   return (
-    <S.List>
-      <ListCard list={getNowPlayState.nowPlay?.results} />
-    </S.List>
+    <>
+      <S.List>
+        <ListCard list={getNowPlayState.nowPlay?.results} />
+      </S.List>
+      <Pagination
+        totalPage={getNowPlayState.nowPlay?.total_pages}
+        limits={10}
+        setPage={setPages}
+        scroll={0}
+      />
+    </>
   );
 }
 export default NowPlaying;
