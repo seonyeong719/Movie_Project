@@ -13,8 +13,6 @@ function DetailPage() {
   const IMG_BASE_URL = "https://image.tmdb.org/t/p/original/";
   const VIDEO_URL = "https://www.youtube.com/embed/";
 
-  console.log(getDetailState.detail);
-
   useEffect(() => {
     dispatch(getDetailList({ movieId }));
   }, []);
@@ -169,7 +167,7 @@ const Div = styled.div`
 `;
 
 const OverView = styled.div`
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   margin-top: 1.2rem;
   line-height: 2.2rem;
 `;

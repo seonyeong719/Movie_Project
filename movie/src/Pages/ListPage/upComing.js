@@ -10,8 +10,6 @@ function UpComing() {
   const dispatch = useDispatch();
   const getUpState = useSelector((store) => store.up);
 
-  console.log(getUpState);
-
   useEffect(() => {
     dispatch(getUpComingList(upPages));
   }, []);

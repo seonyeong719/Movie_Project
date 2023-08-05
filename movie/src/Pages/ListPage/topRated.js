@@ -10,8 +10,6 @@ function TopRated() {
   const dispatch = useDispatch();
   const getTopState = useSelector((store) => store.top);
 
-  console.log(getTopState);
-
   useEffect(() => {
     dispatch(getTopList(topPages));
   }, []);

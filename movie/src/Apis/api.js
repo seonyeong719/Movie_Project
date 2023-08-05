@@ -4,7 +4,7 @@ const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const PATH = "/movie";
 const LANGUAGE = "ko-KR";
 
-export const getMovies = async ({ pageParam }) => {
+export const getMovies = async (pageParam) => {
   const res = await Axios.get(`${PATH}/popular?api_key=${API_KEY}`, {
     params: {
       page: pageParam,
@@ -14,7 +14,7 @@ export const getMovies = async ({ pageParam }) => {
   return res.data;
 };
 
-export const getUpComing = async ({ pageParam }) => {
+export const getUpComing = async (pageParam) => {
   const res = await Axios.get(`${PATH}/upcoming?api_key=${API_KEY}`, {
     params: {
       page: pageParam,
@@ -24,7 +24,7 @@ export const getUpComing = async ({ pageParam }) => {
   return res.data;
 };
 
-export const getTopRated = async ({ pageParam }) => {
+export const getTopRated = async (pageParam) => {
   const res = await Axios.get(`${PATH}/top_rated?api_key=${API_KEY}`, {
     params: {
       page: pageParam,
@@ -34,7 +34,7 @@ export const getTopRated = async ({ pageParam }) => {
   return res.data;
 };
 
-export const getNowPlaying = async ({ pageParam }) => {
+export const getNowPlaying = async (pageParam) => {
   const res = await Axios.get(`${PATH}/now_playing?api_key=${API_KEY}`, {
     params: {
       page: pageParam,
