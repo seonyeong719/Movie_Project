@@ -125,6 +125,9 @@ const Dot = styled.div`
   right: 0;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.COLOR.main};
+  @media ${({ theme }) => theme.DEVICE.tablet} {
+    bottom: -3px;
+  }
 `;
 
 const S = {
