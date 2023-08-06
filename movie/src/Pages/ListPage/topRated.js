@@ -6,6 +6,7 @@ import { styled } from "styled-components";
 import { FlexAllCenter, GridAllCenter, GridColumn, GridGap } from "../../Styles/common";
 import Pagination from "../../Components/Pagination/pagination";
 import DetailSkeleton from "../Skeleton/detailSkeleton";
+import UpBtn from "../../Components/ScrollBtn/upBtn";
 
 function TopRated() {
   const [topPages, setTopPages] = useState(1);
@@ -27,6 +28,7 @@ function TopRated() {
           <ListCard list={getTopState.top?.results} />
         </S.List>
       </S.Wrap>
+      <UpBtn />
       <Pagination
         totalPage={getTopState.top?.total_pages}
         limits={10}

@@ -6,6 +6,7 @@ import { styled } from "styled-components";
 import { FlexAllCenter, GridAllCenter, GridColumn, GridGap } from "../../Styles/common";
 import Pagination from "../../Components/Pagination/pagination";
 import DetailSkeleton from "../Skeleton/detailSkeleton";
+import UpBtn from "../../Components/ScrollBtn/upBtn";
 
 function UpComing() {
   const [upPages, setUpPages] = useState(1);
@@ -27,6 +28,7 @@ function UpComing() {
           <ListCard list={getUpState.up?.results} />
         </S.List>
       </S.Wrap>
+      <UpBtn />
       <Pagination
         totalPage={getUpState.up?.total_pages}
         limits={10}

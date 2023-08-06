@@ -1,26 +1,33 @@
 import { styled } from "styled-components";
+import ScrollUp from "../../Utils/scrollUp";
+import useScroll from "../../Hooks/useScroll";
 
 function UpBtn() {
-  return <UpButton>UP</UpButton>;
+  const scrollHook = useScroll();
+
+  const goUp = () => {
+    ScrollUp(0);
+  };
+
+  return (
+    <UpButton onClick={goUp} scroll={scrollHook}>
+      UP
+    </UpButton>
+  );
 }
 export default UpBtn;
 
 const UpButton = styled.button`
   font-weight: bold;
-  font-size: 15px;
-  padding: 20px 15px;
+  font-size: 1.1rem;
+  padding: 1.2rem 1.1rem;
   background-color: #000;
   color: #fff;
   border: 2px solid rgb(210, 204, 193);
   border-radius: 50%;
-  outline: none;
   cursor: pointer;
-  position: sticky;
+  position: fixed;
   left: 92%;
   bottom: 100px;
-  display: none;
   display: ${({ scroll }) => (scroll ? "block" : "none")};
-  :hover {
-    background-color: rgb(102, 102, 102);
-  }
 `;

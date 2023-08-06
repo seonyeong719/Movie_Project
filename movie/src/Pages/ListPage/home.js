@@ -12,6 +12,7 @@ import {
 import ListCard from "../../Components/Card/listCard";
 import Pagination from "../../Components/Pagination/pagination";
 import ListSkeleton from "../Skeleton/listSkeleton";
+import UpBtn from "../../Components/ScrollBtn/upBtn";
 
 function Home() {
   const [homePages, setHomePages] = useState(1);
@@ -43,6 +44,7 @@ function Home() {
           <ListCard list={getMovieState.movies?.results} />
         </S.List>
       </S.Wrap>
+      <UpBtn />
       <Pagination
         totalPage={getMovieState.movies?.total_pages}
         limits={10}

@@ -6,6 +6,7 @@ import { FlexAllCenter, GridAllCenter, GridColumn, GridGap } from "../../Styles/
 import { useParams } from "react-router-dom";
 import ListCard from "../../Components/Card/listCard";
 import DetailSkeleton from "../Skeleton/detailSkeleton";
+import UpBtn from "../../Components/ScrollBtn/upBtn";
 
 function SearchList() {
   const { title } = useParams();
@@ -31,6 +32,7 @@ function SearchList() {
               <S.List>
                 <ListCard list={getSearchState.search?.results} />
               </S.List>
+              <UpBtn />
             </S.Wrap>
           )}
         </S.Div>

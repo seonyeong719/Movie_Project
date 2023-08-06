@@ -25,18 +25,18 @@ function Header() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); //clean up
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   useEffect(() => {
     setLocationUrl(location.pathname);
+    window.scrollTo(0, 0);
   }, [location]);
 
   return (
     <>
       <S.Wrapper scroll={scroll}>
-        {/* <S.Wrapper> */}
         <S.Head>
           <S.HeaderLeft>
             <S.HeaderLogo className="headerFont" onClick={() => navigate("")}>

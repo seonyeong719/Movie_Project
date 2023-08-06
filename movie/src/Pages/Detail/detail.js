@@ -16,7 +16,7 @@ function DetailPage() {
 
   useEffect(() => {
     dispatch(getDetailList({ movieId }));
-  }, []);
+  }, [dispatch]);
 
   if (getDetailState.loading) {
     return <DetailSkeleton />;
