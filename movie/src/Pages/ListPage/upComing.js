@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUpComingList } from "../../Store/Slice/upSlice";
 import ListCard from "../../Components/Card/listCard";
 import { styled } from "styled-components";
-import { GridAllCenter, GridColumn, GridGap } from "../../Styles/common";
+import { FlexAllCenter, GridAllCenter, GridColumn, GridGap } from "../../Styles/common";
 import Pagination from "../../Components/Pagination/pagination";
+import DetailSkeleton from "../Skeleton/detailSkeleton";
 
 function UpComing() {
   const [upPages, setUpPages] = useState(1);
@@ -16,14 +17,16 @@ function UpComing() {
   }, [upPages, dispatch]);
 
   if (getUpState.loading) {
-    return <div>Loading...</div>;
+    return <DetailSkeleton />;
   }
 
   return (
     <>
-      <S.List>
-        <ListCard list={getUpState.up?.results} />
-      </S.List>
+      <S.Wrap>
+        <S.List>
+          <ListCard list={getUpState.up?.results} />
+        </S.List>
+      </S.Wrap>
       <Pagination
         totalPage={getUpState.up?.total_pages}
         limits={10}
@@ -35,20 +38,30 @@ function UpComing() {
 }
 export default UpComing;
 
+const Wrap = styled.div`
+  width: 100%;
+  background-color: ${({ theme }) => theme.COLOR.common.black};
+  ${FlexAllCenter}
+`;
+
 const List = styled.div`
   background-color: ${({ theme }) => theme.COLOR.common.black};
   padding-top: 10rem;
+  width: 80%;
   ${GridColumn(4)}
   ${GridAllCenter}
   @media ${({ theme }) => theme.DEVICE.tablet} {
     ${GridColumn(3)}
+    width: 90%;
   }
   @media ${({ theme }) => theme.DEVICE.mobile} {
     ${GridColumn(2)}
     ${GridGap.mobile}
+    width: 95%;
   }
 `;
 
 const S = {
+  Wrap,
   List,
 };

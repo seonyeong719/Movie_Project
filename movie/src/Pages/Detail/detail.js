@@ -4,6 +4,7 @@ import { getDetailList } from "../../Store/Slice/detailSlice";
 import { styled } from "styled-components";
 import { useParams } from "react-router-dom";
 import { FlexAlignCenter } from "../../Styles/common";
+import DetailSkeleton from "../Skeleton/detailSkeleton";
 
 function DetailPage() {
   const { movieId } = useParams();
@@ -18,7 +19,7 @@ function DetailPage() {
   }, []);
 
   if (getDetailState.loading) {
-    return <div>Loading...</div>;
+    return <DetailSkeleton />;
   }
 
   return (

@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 `;
 
 const Hamburger = styled(RxHamburgerMenu)`
-  color: gray;
+  color: ${({ theme }) => theme.COLOR.main};
   font-size: 3.5rem;
   cursor: pointer;
 `;

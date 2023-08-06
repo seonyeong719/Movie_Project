@@ -12,22 +12,22 @@ function Header() {
   const navigate = useNavigate();
   const [locationUrl, setLocationUrl] = useState("");
   const location = useLocation();
-  // const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
-  // const handleScroll = () => {
-  //   if (window.scrollY >= 50) {
-  //     setScroll(true);
-  //   } else {
-  //     setScroll(false);
-  //   }
-  // };
+  const handleScroll = () => {
+    if (window.scrollY >= 50) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll); //clean up
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll); //clean up
+    };
+  }, []);
 
   useEffect(() => {
     setLocationUrl(location.pathname);
@@ -35,8 +35,8 @@ function Header() {
 
   return (
     <>
-      {/* <S.Wrapper scroll={scroll}> */}
-      <S.Wrapper>
+      <S.Wrapper scroll={scroll}>
+        {/* <S.Wrapper> */}
         <S.Head>
           <S.HeaderLeft>
             <S.HeaderLogo className="headerFont" onClick={() => navigate("")}>
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 9999;
-  /* background-color: ${({ scroll }) => (scroll ? "rgba(0, 0, 0, 1)" : "transparent")}; */
+  background-color: ${({ scroll }) => (scroll ? "rgba(0, 0, 0, 1)" : "transparent")};
 `;
 const Head = styled.div`
   ${FlexSpaceBetween}

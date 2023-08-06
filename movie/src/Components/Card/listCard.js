@@ -30,8 +30,8 @@ export default ListCard;
 
 const Box = styled.div`
   background-color: #111111;
-
-  width: 18.5rem;
+  width: 90%;
+  height: 90%;
   margin: 1.9rem;
   cursor: pointer;
   &:hover {
@@ -47,8 +47,8 @@ const Box = styled.div`
 `;
 
 const Img = styled.img`
-  height: 20rem;
-  width: 20rem;
+  width: 100%;
+  max-height: 20rem;
 `;
 
 const Contents_Header = styled.div`
@@ -64,12 +64,11 @@ const Contents_Body = styled.div`
 `;
 
 const ImgWrap = styled.div`
-  ${FlexJustifyCenter}
+  /* ${FlexJustifyCenter} */
 `;
 
 const Title = styled.div`
   max-width: 150px;
-  /* max-width: 12rem; */
 `;
 
 const ContentWrapper = styled.div`
