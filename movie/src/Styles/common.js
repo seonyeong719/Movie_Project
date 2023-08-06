@@ -12,6 +12,17 @@ export const GridColumn = (count) => css`
   row-gap: 3rem;
 `;
 
+export const GridGap = {
+  mobile: css`
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+  `,
+  tablet: css`
+    row-gap: 20px;
+    column-gap: 20px;
+  `,
+};
+
 export const FlexAllCenter = css`
   display: flex;
   justify-content: center;

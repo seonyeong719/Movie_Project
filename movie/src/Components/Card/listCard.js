@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { FlexJustifyCenter, FlexSpaceBetween } from "../../Styles/common";
+import { FlexJustifyCenter, FlexSpaceBetween, GridGap } from "../../Styles/common";
 import { useNavigate } from "react-router-dom";
 
 function ListCard({ list }) {
@@ -30,6 +30,7 @@ export default ListCard;
 
 const Box = styled.div`
   background-color: #111111;
+
   width: 18.5rem;
   margin: 1.9rem;
   cursor: pointer;
@@ -39,12 +40,15 @@ const Box = styled.div`
   }
   transform: scale(1);
   transition: transform 0.9s;
+  @media ${({ theme }) => theme.DEVICE.mobile} {
+    width: 20rem;
+    height: 90%;
+  }
 `;
 
 const Img = styled.img`
   height: 20rem;
   width: 20rem;
-  /* width: 310px; */
 `;
 
 const Contents_Header = styled.div`

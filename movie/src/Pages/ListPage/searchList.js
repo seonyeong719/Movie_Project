@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchList } from "../../Store/Slice/searchSlice";
 import { styled } from "styled-components";
-import { FlexJustifyCenter } from "../../Styles/common";
+import { GridAllCenter, GridColumn, GridGap } from "../../Styles/common";
 import { useParams } from "react-router-dom";
 import ListCard from "../../Components/Card/listCard";
 
@@ -13,7 +13,7 @@ function SearchList() {
 
   useEffect(() => {
     dispatch(getSearchList({ title }));
-  }, []);
+  }, [dispatch]);
 
   if (getSearchState.loading) {
     return <div>Loading...</div>;
@@ -44,8 +44,16 @@ const Div = styled.div`
 
 const List = styled.div`
   background-color: ${({ theme }) => theme.COLOR.common.black};
-  ${FlexJustifyCenter}
-  flex-wrap: wrap;
+  padding-top: 10rem;
+  ${GridColumn(4)}
+  ${GridAllCenter}
+  @media ${({ theme }) => theme.DEVICE.tablet} {
+    ${GridColumn(3)}
+  }
+  @media ${({ theme }) => theme.DEVICE.mobile} {
+    ${GridColumn(2)}
+    ${GridGap.mobile}
+  }
 `;
 
 const S = {

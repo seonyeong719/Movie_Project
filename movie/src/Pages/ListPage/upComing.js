@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUpComingList } from "../../Store/Slice/upSlice";
 import ListCard from "../../Components/Card/listCard";
 import { styled } from "styled-components";
-import { FlexJustifyCenter } from "../../Styles/common";
+import { GridAllCenter, GridColumn, GridGap } from "../../Styles/common";
 import Pagination from "../../Components/Pagination/pagination";
 
 function UpComing() {
@@ -13,7 +13,7 @@ function UpComing() {
 
   useEffect(() => {
     dispatch(getUpComingList(upPages));
-  }, [upPages]);
+  }, [upPages, dispatch]);
 
   if (getUpState.loading) {
     return <div>Loading...</div>;
@@ -37,8 +37,16 @@ export default UpComing;
 
 const List = styled.div`
   background-color: ${({ theme }) => theme.COLOR.common.black};
-  ${FlexJustifyCenter}
-  flex-wrap: wrap;
+  padding-top: 10rem;
+  ${GridColumn(4)}
+  ${GridAllCenter}
+  @media ${({ theme }) => theme.DEVICE.tablet} {
+    ${GridColumn(3)}
+  }
+  @media ${({ theme }) => theme.DEVICE.mobile} {
+    ${GridColumn(2)}
+    ${GridGap.mobile}
+  }
 `;
 
 const S = {
