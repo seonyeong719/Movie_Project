@@ -76,6 +76,10 @@ const MainCont = styled.div`
   position: absolute;
   bottom: 24rem;
   left: 11rem;
+  @media ${({ theme }) => theme.DEVICE.mobile} {
+    bottom: 10rem;
+    left: 4rem;
+  }
 `;
 
 const MainCont1 = styled.div`
@@ -85,6 +89,10 @@ const MainCont1 = styled.div`
   left: 11rem;
   text-shadow: black 0.1rem 0.1rem 0.6rem;
   color: ${({ theme }) => theme.COLOR.common.white};
+  @media ${({ theme }) => theme.DEVICE.mobile} {
+    bottom: 7rem;
+    left: 4rem;
+  }
 `;
 
 const Wrap = styled.div`

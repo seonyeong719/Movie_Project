@@ -22,6 +22,9 @@ const Wrapper = styled.div`
   width: 100%;
   ${FlexAllCenter}
   background-color: rgb(132, 132, 132);
+  @media ${({ theme }) => theme.DEVICE.mobile} {
+    display: none;
+  }
 `;
 
 const List = styled.div`

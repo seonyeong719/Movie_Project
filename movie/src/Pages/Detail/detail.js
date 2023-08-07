@@ -62,9 +62,7 @@ function DetailPage() {
 export default DetailPage;
 
 const Body = styled.div`
-  width: 100%; // 보류
-  /* height: 809px; // ? */
-  /* height: 90rem; */
+  width: 100%;
   ${FlexAlignCenter}
   flex-direction: column;
   color: white;

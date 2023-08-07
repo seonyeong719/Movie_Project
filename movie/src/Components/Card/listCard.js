@@ -41,7 +41,6 @@ const Box = styled.div`
   transform: scale(1);
   transition: transform 0.9s;
   @media ${({ theme }) => theme.DEVICE.mobile} {
-    width: 20rem;
     height: 90%;
   }
 `;

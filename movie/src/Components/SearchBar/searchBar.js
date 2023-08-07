@@ -9,6 +9,7 @@ function SearchBar() {
 
   const onClickSearch = () => {
     if (!title) return;
+    if (!title.trim()) return;
     navigate(`/search/${title}`);
   };
   const searchInput = (e) => {
