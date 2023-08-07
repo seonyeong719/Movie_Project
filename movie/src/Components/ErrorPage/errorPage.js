@@ -1,13 +1,16 @@
 import { styled } from "styled-components";
 import { FlexAllCenter } from "../../Styles/common";
+import { Link } from "react-router-dom";
 
-function ErrorPage() {
+function ErrorPage({ title }) {
   return (
     <S.Wrap>
       <S.Comment>
-        검색결과가 없습니다 <br /> 홈으로 돌아갑니다
+        " {title} " 에 대한 검색결과가 없습니다 <br /> 홈으로 돌아갑니다
       </S.Comment>
-      <S.HomeBtn>홈으로 돌아가기</S.HomeBtn>
+      <Link to="/">
+        <S.HomeBtn>홈으로 돌아가기</S.HomeBtn>
+      </Link>
     </S.Wrap>
   );
 }
@@ -38,7 +41,8 @@ const HomeBtn = styled.button`
   border-radius: 0.4rem;
   background-color: ${({ theme }) => theme.COLOR.main};
   cursor: pointer;
-  & :hover {
+  &:hover {
+    background-color: #ae0e0f;
   }
 `;
 

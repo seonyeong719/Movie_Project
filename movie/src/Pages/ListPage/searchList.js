@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ListCard from "../../Components/Card/listCard";
 import DetailSkeleton from "../Skeleton/detailSkeleton";
 import UpBtn from "../../Components/ScrollBtn/upBtn";
+import ErrorPage from "../../Components/ErrorPage/errorPage";
 
 function SearchList() {
   const { title } = useParams();
@@ -26,7 +27,7 @@ function SearchList() {
       {getSearchState.search && (
         <S.Div>
           {getSearchState.search.results?.length === 0 ? (
-            <div>검색결과가 없다는 페이지</div>
+            <ErrorPage title={title} />
           ) : (
             <S.Wrap>
               <S.List>
@@ -41,6 +42,7 @@ function SearchList() {
   );
 }
 export default SearchList;
+
 const Div = styled.div`
   background-color: #111111;
 `;

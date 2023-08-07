@@ -7,7 +7,6 @@ import { FlexAllCenter, GridAllCenter, GridColumn, GridGap } from "../../Styles/
 import Pagination from "../../Components/Pagination/pagination";
 import DetailSkeleton from "../Skeleton/detailSkeleton";
 import UpBtn from "../../Components/ScrollBtn/upBtn";
-import ErrorPage from "../../Components/ErrorPage/errorPage";
 
 function TopRated() {
   const [topPages, setTopPages] = useState(1);
@@ -24,7 +23,6 @@ function TopRated() {
 
   return (
     <>
-      <ErrorPage />
       <S.Wrap>
         <S.List>
           <ListCard list={getTopState.top?.results} />

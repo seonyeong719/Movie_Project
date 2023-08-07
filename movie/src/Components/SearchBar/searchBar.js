@@ -19,7 +19,7 @@ function SearchBar() {
     <>
       <Form onSubmit={onClickSearch}>
         <S.SearchInput onChange={searchInput} placeholder="제목, 사람, 장르" />
-        <S.Button>
+        <S.Button disabled={title.length === 0}>
           <CiSearch color={"white"} size={25} />
         </S.Button>
       </Form>
