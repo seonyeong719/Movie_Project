@@ -21,31 +21,31 @@ function MobileHeader() {
 
   const onClickNav = (page) => {
     navigate(`${page}`);
-
-    return (
-      <S.Wrapper>
-        {open ? <Cross onClick={onSideBarBtn} /> : <S.Hamburger onClick={onSideBarBtn} />}
-        {open && (
-          <S.Ul>
-            {NAV_LIST.map((nav, idx) => (
-              <S.Li
-                key={idx}
-                state={nav.url === location.pathname}
-                onClick={() => onClickNav(nav.url)}
-              >
-                {nav.title}
-              </S.Li>
-            ))}
-          </S.Ul>
-        )}
-      </S.Wrapper>
-    );
   };
+
+  return (
+    <S.Wrapper>
+      {open ? <Cross onClick={onSideBarBtn} /> : <S.Hamburger onClick={onSideBarBtn} />}
+      {open && (
+        <S.Ul>
+          {NAV_LIST.map((nav, idx) => (
+            <S.Li
+              key={idx}
+              state={nav.url === location.pathname}
+              onClick={() => onClickNav(nav.url)}
+            >
+              {nav.title}
+            </S.Li>
+          ))}
+        </S.Ul>
+      )}
+    </S.Wrapper>
+  );
 }
+
 export default MobileHeader;
 
 const Wrapper = styled.div`
-  position: relative;
   ${FlexAlignCenter}
   display: none;
   @media ${({ theme }) => theme.DEVICE.mobile} {
@@ -58,7 +58,7 @@ const Cross = styled(RxCross2)`
   font-size: 3.5rem;
   position: relative;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9999;
 `;
 
 const Hamburger = styled(RxHamburgerMenu)`
@@ -66,18 +66,18 @@ const Hamburger = styled(RxHamburgerMenu)`
   font-size: 3.5rem;
   position: relative;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9999;
 `;
 
 const Ul = styled.ul`
   position: absolute;
   background-color: #111111;
   right: -3rem;
-  top: -1.6rem;
+  top: 0;
   font-size: 2rem;
   width: 60vw;
   height: 100vh;
-  padding: 7rem 0 0 0.8rem;
+  padding: 8rem 0 0 3rem;
   @keyframes slide {
     0% {
       transform: translateX(50%);
@@ -94,8 +94,8 @@ const Ul = styled.ul`
 const Li = styled.li`
   color: white;
   list-style: none;
-  padding-top: 1.6rem;
-  font-size: 2.8rem;
+  padding-top: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: white;
   color: ${({ state }) => (state ? "#E51013" : "")};
@@ -105,4 +105,4 @@ const Li = styled.li`
   }
 `;
 
-const S = { Wrapper, Hamburger, Li, Ul };
+const S = { Wrapper, Hamburger, Ul, Li };
