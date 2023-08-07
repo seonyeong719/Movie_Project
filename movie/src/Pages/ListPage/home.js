@@ -26,32 +26,36 @@ function Home() {
   const IMG_BASE_URL = "https://image.tmdb.org/t/p/original/";
   const random = Math.floor(Math.random() * 20);
 
-  if (getMovieState.loading) {
+  if (getMovieState?.loading) {
     return <ListSkeleton />;
   }
 
   return (
-    <div>
-      <S.MainPostWrap>
-        <S.MainPost
-          src={IMG_BASE_URL + getMovieState.movies?.results[random].backdrop_path}
-        ></S.MainPost>
-        <S.MainCont>{getMovieState.movies?.results[random].title}</S.MainCont>
-        <S.MainCont1>개봉일 :{getMovieState.movies?.results[random].release_date}</S.MainCont1>
-      </S.MainPostWrap>
-      <S.Wrap>
-        <S.List>
-          <ListCard list={getMovieState.movies?.results} />
-        </S.List>
-      </S.Wrap>
-      <UpBtn />
-      <Pagination
-        totalPage={getMovieState.movies?.total_pages}
-        limits={10}
-        setPage={setHomePages}
-        scroll={0}
-      />
-    </div>
+    <>
+      {!getMovieState?.loading && (
+        <div>
+          <S.MainPostWrap>
+            <S.MainPost
+              src={IMG_BASE_URL + getMovieState?.movies?.results[random].backdrop_path}
+            ></S.MainPost>
+            <S.MainCont>{getMovieState.movies?.results[random].title}</S.MainCont>
+            <S.MainCont1>개봉일 :{getMovieState.movies?.results[random].release_date}</S.MainCont1>
+          </S.MainPostWrap>
+          <S.Wrap>
+            <S.List>
+              <ListCard list={getMovieState.movies?.results} />
+            </S.List>
+          </S.Wrap>
+          <UpBtn />
+          <Pagination
+            totalPage={getMovieState.movies?.total_pages}
+            limits={10}
+            setPage={setHomePages}
+            scroll={0}
+          />
+        </div>
+      )}
+    </>
   );
 }
 export default Home;

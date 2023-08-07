@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { FlexJustifyCenter, FlexSpaceBetween, GridGap } from "../../Styles/common";
+import { FlexJustifyCenter, FlexSpaceBetween } from "../../Styles/common";
 import { useNavigate } from "react-router-dom";
 
 function ListCard({ list }) {
