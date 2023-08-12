@@ -48,7 +48,6 @@ const Box = styled.div`
 const Img = styled.img`
   width: 100%;
   max-height: 20rem;
-  object-fit: cover;
 `;
 
 const Contents_Header = styled.div`
