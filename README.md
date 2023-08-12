@@ -8,3 +8,5 @@
 <br><br>
 
 ## ⚒️ 기술 스택
+
+![stack](https://github.com/seonyeong719/Movie_Project/assets/117560052/714f9f02-a362-4efe-a936-f19087ca51da)
