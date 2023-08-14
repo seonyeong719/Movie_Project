@@ -54,11 +54,13 @@ function Pagination({ totalPage, limits, setPage, scroll }) {
           ScrollUp(scroll);
         }}
         disabled={disable("start")}
+        aria-label="LeftArrow"
       >
         <HiArrowCircleLeft />
       </S.ArrowBtn>
       {createPageArray(startPage, endPage).map((_, i) => (
         <S.NumBtn
+          aria-label="NumberBtn"
           key={i}
           onClick={() => {
             nextPage(i + startPage);
@@ -75,6 +77,7 @@ function Pagination({ totalPage, limits, setPage, scroll }) {
           ScrollUp(scroll);
         }}
         disabled={disable("end")}
+        aria-label="RightArrow"
       >
         <HiArrowCircleRight />
       </S.ArrowBtn>

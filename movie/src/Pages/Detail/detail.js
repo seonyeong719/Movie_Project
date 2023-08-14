@@ -26,9 +26,9 @@ function DetailPage() {
     <>
       {getDetailState.detail && (
         <S.Body>
-          <S.BackImg src={IMG_BASE_URL + getDetailState.detail.backdrop_path} />
+          <S.BackImg src={IMG_BASE_URL + getDetailState.detail.backdrop_path} alt="backImg" />
           <Wrap>
-            <S.PostImg src={IMG_BASE_URL + getDetailState.detail.poster_path} />
+            <S.PostImg src={IMG_BASE_URL + getDetailState.detail.poster_path} alt="postImg" />
             <Box>
               <Title>
                 <H1>{getDetailState.detail.title}</H1>
