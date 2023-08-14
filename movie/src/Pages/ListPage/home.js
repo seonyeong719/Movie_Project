@@ -37,6 +37,8 @@ function Home() {
           <S.MainPostWrap>
             <S.MainPost
               src={IMG_BASE_URL + getMovieState?.movies?.results[random].backdrop_path}
+              width="100"
+              height="100"
             ></S.MainPost>
             <S.MainCont>{getMovieState.movies?.results[random].title}</S.MainCont>
             <S.MainCont1>개봉일 :{getMovieState.movies?.results[random].release_date}</S.MainCont1>

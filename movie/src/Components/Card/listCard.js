@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { FlexJustifyCenter, FlexSpaceBetween } from "../../Styles/common";
+import { FlexSpaceBetween } from "../../Styles/common";
 import { useNavigate } from "react-router-dom";
 
 function ListCard({ list }) {
@@ -12,7 +12,7 @@ function ListCard({ list }) {
         list.map((el) => (
           <S.Box onClick={() => navigate(`/detail/${el.id}`)}>
             <S.ImgWrap>
-              <S.Img src={IMG_BASE_URL + el.poster_path} />
+              <S.Img src={IMG_BASE_URL + el.poster_path} width="100" height="700" />
             </S.ImgWrap>
             <S.ContentWrapper>
               <S.Contents_Header>
@@ -62,9 +62,7 @@ const Contents_Body = styled.div`
   color: rgb(152, 152, 152);
 `;
 
-const ImgWrap = styled.div`
-  /* ${FlexJustifyCenter} */
-`;
+const ImgWrap = styled.div``;
 
 const Title = styled.div`
   max-width: 150px;
