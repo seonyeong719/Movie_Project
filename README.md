@@ -7,6 +7,10 @@
 
 <br><br>
 
+## 🖥️ 서비스 화면
+
+![movieScreen](https://github.com/seonyeong719/Movie_Project/assets/117560052/73ffa9b5-4182-456f-992c-73f8db9aefc9)
+
 ## ⚒️ 기술 스택
 
 ![stack](https://github.com/seonyeong719/Movie_Project/assets/117560052/714f9f02-a362-4efe-a936-f19087ca51da)
