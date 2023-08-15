@@ -12,7 +12,7 @@ function ListCard({ list }) {
         list.map((el) => (
           <S.Box onClick={() => navigate(`/detail/${el.id}`)}>
             <S.ImgWrap>
-              <S.Img src={IMG_BASE_URL + el.poster_path} width="100" height="700" />
+              <S.Img src={IMG_BASE_URL + el.poster_path} width="100" height="700" alt="ListImg" />
             </S.ImgWrap>
             <S.ContentWrapper>
               <S.Contents_Header>
