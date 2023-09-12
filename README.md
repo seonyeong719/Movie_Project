@@ -17,8 +17,8 @@
 
 ## 🖥️ 서비스 화면
 
-![movieScreen](https://github.com/seonyeong719/Movie_Project/assets/117560052/73ffa9b5-4182-456f-992c-73f8db9aefc9)
+<img width="560" alt="영화를 보CINEMA" src="https://github.com/seonyeong719/Movie_Project/assets/117560052/cf2ce99e-f389-4e76-9a8c-7827cbfc5a77">
 
 ## ⚒️ 기술 스택
 
-![stack](https://github.com/seonyeong719/Movie_Project/assets/117560052/714f9f02-a362-4efe-a936-f19087ca51da)
+![무비](https://github.com/seonyeong719/Movie_Project/assets/117560052/8691fc96-e9ac-44c8-83b7-75d7c6f129b1)
